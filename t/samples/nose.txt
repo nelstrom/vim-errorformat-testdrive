@@ -1,0 +1,23 @@
+F.F.
+-----------------------------------------------------------------------------
+1) FAIL: test_foo (links.tests.SteelTest)
+
+   Traceback (most recent call last):
+    links/tests.py line 5 in test_foo
+      self.assertEqual(2, 3)
+   AssertionError: 2 != 3
+
+-----------------------------------------------------------------------------
+2) FAIL: test_bar (links.tests.SteelTest)
+
+   Traceback (most recent call last):
+    links/tests.py line 8 in test_bar
+      self.assertEqual(0, 7)
+   AssertionError: 0 != 7
+
+-----------------------------------------------------------------------------
+4 tests run in 0.2 seconds.
+2 FAILED (2 tests passed)
+nosetests --verbosity=1
+Creating test database for alias 'default'...
+Destroying test database for alias 'default'...
