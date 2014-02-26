@@ -1,3 +1,7 @@
+function! ValidItems()
+    return filter(getqflist(), "v:val['valid'] ==# 1")
+endfunction
+
 describe 'use nose compiler to parse output from nose'
   before
     compiler nose
@@ -10,24 +14,18 @@ describe 'use nose compiler to parse output from nose'
   end
 
   it 'populates the quickfix list with 2 valid items'
-    let valid_count = 0
-    for item in getqflist()
-      if item['valid'] ==# 1
-        let valid_count = valid_count + 1
-      endif
-    endfor
-    Expect valid_count ==# 2
+    Expect len(ValidItems()) ==# 2
   end
 
   it 'parses line six'
-    let item = getqflist()[5]
+    let item = ValidItems()[0]
     Expect bufname(item['bufnr']) ==# 'links/tests.py'
     Expect item['text']           ==# "test_foo"
     Expect item['lnum']           ==# 5
   end
 
   it 'parses line fourteen'
-    let item = getqflist()[13]
+    let item = ValidItems()[1]
     Expect bufname(item['bufnr']) ==# 'links/tests.py'
     Expect item['text']           ==# "test_bar"
     Expect item['lnum']           ==# 8
