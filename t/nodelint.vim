@@ -1,13 +1,7 @@
 describe 'use nodelint compiler to parse output from nodelint'
   before
+    compiler nodelint
     let &makeprg="cat t/samples/nodelint.txt"
-    let &l:efm='%A'
-    let &l:efm.='%f\, '
-    let &l:efm.='line %l\, '
-    let &l:efm.='character %c:'
-    let &l:efm.='%m' . ','
-    let &l:efm.='%Z%.%#' . ','
-    let &l:efm.='%-G%.%#'
     make!
   end
 
