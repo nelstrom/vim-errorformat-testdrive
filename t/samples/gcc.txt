@@ -1,0 +1,2 @@
+wakeup.c:68: error: conflicting types for 'generatePacket'
+wakeup.h:3: error: previous declaration of 'generatePacket' was here
